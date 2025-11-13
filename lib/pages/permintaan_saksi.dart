@@ -41,7 +41,7 @@ class PermintaanSaksiPage extends StatelessWidget {
                   icon: const CircleAvatar(
                     radius: 18,
                     backgroundColor: Colors.grey,
-                    backgroundImage: AssetImage("assets/profile.jpg"),
+                    child: Icon(Icons.person, color: Colors.white),
                   ),
                   onSelected: (value) {
                     if (value == "permintaan") {
