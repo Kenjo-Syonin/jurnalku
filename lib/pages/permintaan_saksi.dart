@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'panduan_page.dart';
+import 'pengaturan_akun.dart';
 import 'package:intl/intl.dart';
+import 'explore_page.dart';
 
 class PermintaanSaksiPage extends StatelessWidget {
   const PermintaanSaksiPage({super.key});
@@ -11,26 +14,52 @@ class PermintaanSaksiPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         backgroundColor: Colors.white,
         elevation: 0.5,
         title: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            const Icon(Icons.home, color: Colors.black),
+            const Text(
+              "Jurnalku",
+              style: TextStyle(
+                color: Colors.black,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
             Row(
               children: [
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.end,
-                  children: const [
-                    Text("Kenjo Syonin", style: TextStyle(fontSize: 16, color: Colors.black)),
-                    Text("PPLG XII-4", style: TextStyle(fontSize: 12, color: Colors.grey)),
+                  children: [
+                    const Text("Kenjo Syonin", style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: Colors.black)),
+                    Text("PPLG XII-4", style: TextStyle(fontSize: 12, color: Colors.grey[600])),
                   ],
                 ),
-                const SizedBox(width: 10),
-                const CircleAvatar(
-                  radius: 18,
-                  backgroundColor: Colors.grey,
-                  backgroundImage: AssetImage("assets/profile.jpg"),
+                const SizedBox(width: 8),
+                PopupMenuButton<String>(
+                  icon: const CircleAvatar(
+                    radius: 18,
+                    backgroundColor: Colors.grey,
+                    backgroundImage: AssetImage("assets/profile.jpg"),
+                  ),
+                  onSelected: (value) {
+                    if (value == "permintaan") {
+                      // Navigator.push(context, MaterialPageRoute(builder: (_) => const PermintaanSaksiPage()));
+                    } else if (value == "pengaturan") {
+                      Navigator.push(context, MaterialPageRoute(builder: (_) => const PengaturanAkunPage()));
+                    } else if (value == "panduan") {
+                      Navigator.push(context, MaterialPageRoute(builder: (_) => const PanduanPenggunaPage()));
+                    } else if (value == "explore") {
+                      Navigator.push(context, MaterialPageRoute(builder: (_) => const ExplorePage()));
+                    }
+                  },
+                  itemBuilder: (context) => const [
+                    // PopupMenuItem(value: "permintaan", child: Text("Permintaan Saksi")),
+                    PopupMenuItem(value: "pengaturan", child: Text("Pengaturan Akun")),
+                    PopupMenuItem(value: "panduan", child: Text("Panduan Pengguna")),
+                    PopupMenuItem(value: "explore", child: Text("Direktori Siswa")),
+                  ],
                 ),
               ],
             ),
@@ -42,7 +71,7 @@ class PermintaanSaksiPage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text("Permintaan Saksi", style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold)),
+            const Text("Permintaan Saksi", style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold)),
             const SizedBox(height: 6),
             const Text("Kelola permintaan menjadi saksi dari siswa lain", style: TextStyle(fontSize: 16, color: Colors.black54)),
             const SizedBox(height: 20),
