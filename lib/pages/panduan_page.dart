@@ -83,69 +83,123 @@ class PanduanPenggunaPage extends StatelessWidget {
           ],
         ),
       ),
-      body: ListView(
-        padding: const EdgeInsets.all(16),
-        children: [
-          const Text(
-            "Panduan Pengguna",
-            style: TextStyle(fontSize: 26, fontWeight: FontWeight.bold),
-          ),
-          const SizedBox(height: 10),
-          const Text(
-            "Pelajari cara menggunakan fitur-fitur utama di aplikasi Jurnalku dengan mudah.",
-            style: TextStyle(color: Colors.black54),
-          ),
-          const SizedBox(height: 25),
-          _buildCard(
-            title: "1. Melihat Direktori Siswa",
-            content:
-                "Masuk ke menu Explore untuk melihat daftar siswa SMK Wikrama Bogor, termasuk informasi portofolio dan sertifikat mereka.",
-          ),
-          _buildCard(
-            title: "2. Permintaan Saksi",
-            content:
-                "Bagian ini menampilkan permintaan saksi dari siswa lain. Anda dapat menerima atau menolak sesuai kebutuhan.",
-          ),
-          _buildCard(
-            title: "3. Mengatur Profil & Akun",
-            content:
-                "Di menu Pengaturan Akun, Anda dapat melihat data pribadi dan mengganti kata sandi dengan mudah.",
-          ),
-          const SizedBox(height: 20),
-          const Center(
-            child: Text(
-              "Terakhir diperbarui: November 2025",
-              style: TextStyle(color: Colors.grey),
+      body: SingleChildScrollView(
+        padding: EdgeInsets.all(16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              children: [
+                Icon(Icons.menu_book_rounded, size: 28, color: Colors.blue[900]),
+                SizedBox(width: 8),
+                Text("Panduan Penggunaan",
+                    style:
+                        TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.blue[900])),
+              ],
             ),
-          )
-        ],
-      ),
-    );
-  }
-
-  Widget _buildCard({required String title, required String content}) {
-    return Container(
-      margin: const EdgeInsets.only(bottom: 14),
-      padding: const EdgeInsets.all(16),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(12),
-        boxShadow: [
-          BoxShadow(
-              color: Colors.black.withOpacity(0.05),
-              blurRadius: 6,
-              offset: const Offset(0, 2))
-        ],
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(title,
-              style:
-                  const TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
-          const SizedBox(height: 6),
-          Text(content, style: const TextStyle(color: Colors.black87)),
-        ],
+            SizedBox(height: 15),
+            Text("Selamat datang di panduan penggunaan aplikasi Jurnalku. Panduan ini akan membantu Anda memahami cara menggunakan fitur-fitur yang tersedia dengan optimal.", style: TextStyle(fontSize: 16, color: Colors.grey[500])),
+            SizedBox(height: 25),
+            Text("Umum", style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.black)),
+            SizedBox(height: 5),
+            Divider(thickness: 1, color: Colors.grey[300]),
+            SizedBox(height: 10),
+            Container(
+              width: double.infinity,
+              padding: EdgeInsets.all(15),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(20),
+              ),
+              child: ListTile(
+                leading: Icon(Icons.menu_book_rounded, size: 28, color: Colors.blue[900]),
+                title: Text("Unggah Profile", style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Colors.black)),
+                subtitle: Text("Panduan untuk mengunggah profile pengguna", style: TextStyle(fontSize: 14, color: Colors.grey[500])),),
+            ),
+            SizedBox(height: 15),
+            Container(
+              width: double.infinity,
+              padding: EdgeInsets.all(15),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(20),
+              ),
+              child: ListTile(
+                leading: Icon(Icons.menu_book_rounded, size: 28, color: Colors.blue[900]),
+                title: Text("Ganti Password", style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Colors.black)),
+                subtitle: Text("Panduan untuk mengganti Password pengguna", style: TextStyle(fontSize: 14, color: Colors.grey[500])),),
+            ),
+            SizedBox(height: 30),
+            Text("Untuk Siswa", style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.black)),
+            SizedBox(height: 5),
+            Divider(thickness: 1, color: Colors.grey[300]),
+            SizedBox(height: 10),
+            Container(
+              width: double.infinity,
+              padding: EdgeInsets.all(15),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(20),
+              ),
+              child: ListTile(
+                leading: Icon(Icons.menu_book_rounded, size: 28, color: Colors.blue[900]),
+                title: Text("Mengisi Jurnal", style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Colors.black)),
+                subtitle: Text("Panduan untuk mengisi kegiatan sehari - hari", style: TextStyle(fontSize: 14, color: Colors.grey[500])),),
+            ),
+            SizedBox(height: 15),
+            Container(
+              width: double.infinity,
+              padding: EdgeInsets.all(15),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(20),
+              ),
+              child: ListTile(
+                leading: Icon(Icons.menu_book_rounded, size: 28, color: Colors.blue[900]),
+                title: Text("Kelengkapan Profile", style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Colors.black)),
+                subtitle: Text("Panduan untuk melengkapi profile", style: TextStyle(fontSize: 14, color: Colors.grey[500])),),
+            ),
+            SizedBox(height: 15),
+            Container(
+              width: double.infinity,
+              padding: EdgeInsets.all(15),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(20),
+              ),
+              child: ListTile(
+                leading: Icon(Icons.image, size: 28, color: Colors.blue[900]),
+                title: Text("Mengelola Portofolio", style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Colors.black)),
+                subtitle: Text("Panduan untuk menambah, edit, dan hapus portfolio", style: TextStyle(fontSize: 14, color: Colors.grey[500])),),
+            ),
+            SizedBox(height: 15),
+            Container(
+              width: double.infinity,
+              padding: EdgeInsets.all(15),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(20),
+              ),
+              child: ListTile(
+                leading: Icon(Icons.check, size: 28, color: Colors.blue[900]),
+                title: Text("Mengelola Sertifikat", style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Colors.black)),
+                subtitle: Text("Panduan untuk menambah, edit, dan hapus sertifikat", style: TextStyle(fontSize: 14, color: Colors.grey[500])),),
+            ),
+            SizedBox(height: 15),
+            Container(
+              width: double.infinity,
+              padding: EdgeInsets.all(15),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(20),
+              ),
+              child: ListTile(
+                leading: Icon(Icons.info, size: 28, color: Colors.blue[900]),
+                title: Text("Catatan Sikap Saya", style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Colors.black)),
+                subtitle: Text("Panduan untuk melihat dan memahami catatan sikap", style: TextStyle(fontSize: 14, color: Colors.grey[500])),),
+            ),
+          ],
+        ),
       ),
     );
   }
