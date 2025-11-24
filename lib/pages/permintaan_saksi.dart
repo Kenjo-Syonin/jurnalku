@@ -58,7 +58,7 @@ class PermintaanSaksiPage extends StatelessWidget {
                     // PopupMenuItem(value: "permintaan", child: Text("Permintaan Saksi")),
                     PopupMenuItem(value: "pengaturan", child: Text("Pengaturan Akun")),
                     PopupMenuItem(value: "panduan", child: Text("Panduan Pengguna")),
-                    PopupMenuItem(value: "explore", child: Text("Direktori Siswa")),
+                    PopupMenuItem(value: "explore", child: Text("Jelajahi Siswa")),
                   ],
                 ),
               ],

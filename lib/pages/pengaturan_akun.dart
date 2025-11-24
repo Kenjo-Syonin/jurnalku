@@ -53,7 +53,7 @@ class PengaturanAkunPage extends StatelessWidget {
                   itemBuilder: (context) => const [
                     PopupMenuItem(value: "permintaan", child: Text("Permintaan Saksi")),
                     PopupMenuItem(value: "panduan", child: Text("Panduan Pengguna")),
-                    PopupMenuItem(value: "explore", child: Text("Direktori Siswa")),
+                    PopupMenuItem(value: "explore", child: Text("Jelajahi Siswa")),
                   ],
                 ),
               ],

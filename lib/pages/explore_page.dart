@@ -149,7 +149,7 @@ class ExplorePage extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: const [
                   Text(
-                    "Direktori Siswa",
+                    "Explore Siswa",
                     style: TextStyle(
                       fontSize: 28,
                       fontWeight: FontWeight.bold,

@@ -66,11 +66,11 @@ class PanduanPenggunaPage extends StatelessWidget {
                   },
                   itemBuilder: (context) => [
                     const PopupMenuItem(
-                        value: 'explore', child: Text('Explore Siswa')),
-                    const PopupMenuItem(
                         value: 'permintaan', child: Text('Permintaan Saksi')),
                     const PopupMenuItem(
                         value: 'pengaturan', child: Text('Pengaturan Akun')),
+                    const PopupMenuItem(
+                        value: 'explore', child: Text('Jelajahi Siswa')),
                   ],
                   child: const CircleAvatar(
                     radius: 20,
