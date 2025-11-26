@@ -9,7 +9,10 @@ class PermintaanSaksiPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final String today = DateFormat("EEEE, dd MMMM yyyy", "id_ID").format(DateTime.now());
+    final String today = DateFormat(
+      "EEEE, dd MMMM yyyy",
+      "id_ID",
+    ).format(DateTime.now());
 
     return Scaffold(
       backgroundColor: Colors.white,
@@ -32,8 +35,18 @@ class PermintaanSaksiPage extends StatelessWidget {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
-                    const Text("Kenjo Syonin", style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: Colors.black)),
-                    Text("PPLG XII-4", style: TextStyle(fontSize: 12, color: Colors.grey[600])),
+                    const Text(
+                      "Kenjo Syonin",
+                      style: TextStyle(
+                        fontSize: 14,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black,
+                      ),
+                    ),
+                    Text(
+                      "PPLG XII-4",
+                      style: TextStyle(fontSize: 12, color: Colors.grey[600]),
+                    ),
                   ],
                 ),
                 const SizedBox(width: 8),
@@ -45,21 +58,40 @@ class PermintaanSaksiPage extends StatelessWidget {
                   ),
                   onSelected: (value) {
                     if (value == "permintaan") {
-                      // Navigator.push(context, MaterialPageRoute(builder: (_) => const PermintaanSaksiPage()));
+                      // Navigator.push(
+                      //context, 
+                      //MaterialPageRoute(
+                      //builder: (_) => const PermintaanSaksiPage()
+                      //)
+                      //);
                     } else if (value == "pengaturan") {
-                      Navigator.push(context, MaterialPageRoute(builder: (_) => const PengaturanAkunPage()));
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (_) => const PengaturanAkunPage(),
+                        ),
+                      );
                     } else if (value == "panduan") {
-                      Navigator.push(context, MaterialPageRoute(builder: (_) => const PanduanPenggunaPage()));
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (_) => const PanduanPenggunaPage(),
+                        ),
+                      );
                     } else if (value == "explore") {
-                      Navigator.push(context, MaterialPageRoute(builder: (_) => const ExplorePage()));
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (_) => const ExplorePage()),
+                      );
                     }
                   },
                   itemBuilder: (context) => const [
-                    // PopupMenuItem(value: "permintaan", child: Text("Permintaan Saksi")),
-                    PopupMenuItem(value: "pengaturan", child: Text("Pengaturan Akun")),
-                    PopupMenuItem(value: "panduan", child: Text("Panduan Pengguna")),
-                    PopupMenuItem(value: "explore", child: Text("Jelajahi Siswa")),
-                  ],
+                      PopupMenuItem(value: 'profil', child: Text('Profil')),
+                      PopupMenuItem(value: 'explore', child: Text('Explore')),
+                      PopupMenuItem(value: 'permintaan',child: Text('Permintaan Saksi'),),
+                      PopupMenuItem(value: 'panduan',child: Text('Panduan Pengguna'),),
+                      PopupMenuItem(value: 'pengaturan',child: Text('Pengaturan Akun'),),
+                    ],
                 ),
               ],
             ),
@@ -71,28 +103,70 @@ class PermintaanSaksiPage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text("Permintaan Saksi", style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold)),
+            const Text(
+              "Permintaan Saksi",
+              style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
+            ),
             const SizedBox(height: 6),
-            const Text("Kelola permintaan menjadi saksi dari siswa lain", style: TextStyle(fontSize: 16, color: Colors.black54)),
+            const Text(
+              "Kelola permintaan menjadi saksi dari siswa lain",
+              style: TextStyle(fontSize: 16, color: Colors.black54),
+            ),
             const SizedBox(height: 20),
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-              decoration: BoxDecoration(color: Colors.blue[50], borderRadius: BorderRadius.circular(8)),
-              child: Text(today, style: const TextStyle(color: Colors.blue, fontWeight: FontWeight.w600)),
+              decoration: BoxDecoration(
+                color: Colors.blue[50],
+                borderRadius: BorderRadius.circular(8),
+              ),
+              child: Text(
+                today,
+                style: const TextStyle(
+                  color: Colors.blue,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
             ),
             const SizedBox(height: 25),
             Container(
               decoration: BoxDecoration(
                 color: Colors.grey[100],
-                borderRadius: const BorderRadius.only(topLeft: Radius.circular(10), topRight: Radius.circular(10)),
+                borderRadius: const BorderRadius.only(
+                  topLeft: Radius.circular(10),
+                  topRight: Radius.circular(10),
+                ),
               ),
               padding: const EdgeInsets.symmetric(vertical: 14, horizontal: 16),
               child: const Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Expanded(child: Text("PENGIRIM", style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold))),
-                  Expanded(child: Text("TANGGAL", style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold))),
-                  Expanded(child: Text("KONFIRMASI", style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold))),
+                  Expanded(
+                    child: Text(
+                      "PENGIRIM",
+                      style: TextStyle(
+                        fontSize: 12,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                  Expanded(
+                    child: Text(
+                      "TANGGAL",
+                      style: TextStyle(
+                        fontSize: 12,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                  Expanded(
+                    child: Text(
+                      "KONFIRMASI",
+                      style: TextStyle(
+                        fontSize: 12,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ),
@@ -100,7 +174,10 @@ class PermintaanSaksiPage extends StatelessWidget {
               child: Container(
                 width: double.infinity,
                 decoration: BoxDecoration(
-                  borderRadius: const BorderRadius.only(bottomLeft: Radius.circular(10), bottomRight: Radius.circular(10)),
+                  borderRadius: const BorderRadius.only(
+                    bottomLeft: Radius.circular(10),
+                    bottomRight: Radius.circular(10),
+                  ),
                   border: Border.all(color: Colors.grey[300]!),
                 ),
                 child: Center(
@@ -109,9 +186,19 @@ class PermintaanSaksiPage extends StatelessWidget {
                     children: const [
                       Icon(Icons.groups_outlined, color: Colors.grey, size: 50),
                       SizedBox(height: 10),
-                      Text("Belum ada permintaan", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.black)),
+                      Text(
+                        "Belum ada permintaan",
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black,
+                        ),
+                      ),
                       SizedBox(height: 4),
-                      Text("Belum ada yang mengirim permintaan saksi kepada Anda", style: TextStyle(color: Colors.grey)),
+                      Text(
+                        "Belum ada yang mengirim permintaan saksi kepada Anda",
+                        style: TextStyle(color: Colors.grey),
+                      ),
                     ],
                   ),
                 ),
