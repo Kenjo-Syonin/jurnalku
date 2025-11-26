@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:jurnalku/pages/login_page.dart';
 import 'panduan_page.dart';
 import 'pengaturan_akun.dart';
 import 'package:intl/intl.dart';
 import 'explore_page.dart';
+import 'dashboard_page.dart';
 
 class PermintaanSaksiPage extends StatelessWidget {
   const PermintaanSaksiPage({super.key});
@@ -44,7 +46,14 @@ class PermintaanSaksiPage extends StatelessWidget {
                     child: Icon(Icons.person, color: Colors.white),
                   ),
                   onSelected: (value) {
-                    if (value == "permintaan") {
+                    if (value == 'dashboard') {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const Dashboard_Page(),
+                          ),
+                        );
+                      } else if (value == "permintaan") {
                       // Navigator.push(context, MaterialPageRoute(builder: (_) => const PermintaanSaksiPage()));
                     } else if (value == "pengaturan") {
                       Navigator.push(context, MaterialPageRoute(builder: (_) => const PengaturanAkunPage()));
@@ -52,13 +61,17 @@ class PermintaanSaksiPage extends StatelessWidget {
                       Navigator.push(context, MaterialPageRoute(builder: (_) => const PanduanPenggunaPage()));
                     } else if (value == "explore") {
                       Navigator.push(context, MaterialPageRoute(builder: (_) => const ExplorePage()));
-                    }
+                    } else if (value == "logout") {
+                      Navigator.push(context, MaterialPageRoute(builder: (_) => const LoginPage()));
+                    } 
                   },
                   itemBuilder: (context) => const [
+                    PopupMenuItem(value: "dashboard", child: Text("Dashboard")),
                     // PopupMenuItem(value: "permintaan", child: Text("Permintaan Saksi")),
                     PopupMenuItem(value: "pengaturan", child: Text("Pengaturan Akun")),
                     PopupMenuItem(value: "panduan", child: Text("Panduan Pengguna")),
                     PopupMenuItem(value: "explore", child: Text("Jelajahi Siswa")),
+                    PopupMenuItem(value: "logout", child: Text("Keluar")),
                   ],
                 ),
               ],

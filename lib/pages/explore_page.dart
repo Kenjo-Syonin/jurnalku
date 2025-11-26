@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:jurnalku/pages/login_page.dart';
 import 'permintaan_saksi.dart';
 import 'panduan_page.dart';
 import 'pengaturan_akun.dart';
+import 'dashboard_page.dart';
 
 class ExplorePage extends StatelessWidget {
   const ExplorePage({super.key});
@@ -81,7 +83,14 @@ class ExplorePage extends StatelessWidget {
                       borderRadius: BorderRadius.circular(10),
                     ),
                     onSelected: (value) {
-                      if (value == 'permintaan') {
+                      if (value == 'dashboard') {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const Dashboard_Page(),
+                          ),
+                        );
+                      } else if (value == 'permintaan') {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
@@ -101,10 +110,19 @@ class ExplorePage extends StatelessWidget {
                           MaterialPageRoute(
                             builder: (context) => const PengaturanAkunPage(),
                           ),
+                          
                         );
+                      } else if (value == 'logout') {
+                        Navigator.push(
+                          context, 
+                          MaterialPageRoute(builder: (_) => const LoginPage()));
                       }
                     },
                     itemBuilder: (context) => [
+                      const PopupMenuItem(
+                        value: 'dashboard',
+                        child: Text('Dashboard'),
+                      ),
                       const PopupMenuItem(
                         value: 'permintaan',
                         child: Text('Permintaan Saksi'),
@@ -116,6 +134,10 @@ class ExplorePage extends StatelessWidget {
                       const PopupMenuItem(
                         value: 'pengaturan',
                         child: Text('Pengaturan Akun'),
+                      ),
+                      const PopupMenuItem(
+                        value: 'logout',
+                        child: Text('Keluar'),
                       ),
                     ],
                     child: const CircleAvatar(
