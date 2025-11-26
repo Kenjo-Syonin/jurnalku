@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'profil_page.dart';
+import 'explore_page.dart';
 import 'panduan_page.dart';
 import 'pengaturan_akun.dart';
 import 'package:intl/intl.dart';
-import 'explore_page.dart';
 
 class PermintaanSaksiPage extends StatelessWidget {
   const PermintaanSaksiPage({super.key});
@@ -51,39 +52,46 @@ class PermintaanSaksiPage extends StatelessWidget {
                 ),
                 const SizedBox(width: 8),
                 PopupMenuButton<String>(
-                  icon: const CircleAvatar(
-                    radius: 18,
-                    backgroundColor: Colors.grey,
-                    child: Icon(Icons.person, color: Colors.white),
-                  ),
-                  onSelected: (value) {
-                    if (value == "permintaan") {
-                      // Navigator.push(
-                      //context, 
-                      //MaterialPageRoute(
-                      //builder: (_) => const PermintaanSaksiPage()
-                      //)
-                      //);
-                    } else if (value == "pengaturan") {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (_) => const PengaturanAkunPage(),
-                        ),
-                      );
-                    } else if (value == "panduan") {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (_) => const PanduanPenggunaPage(),
-                        ),
-                      );
-                    } else if (value == "explore") {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (_) => const ExplorePage()),
-                      );
-                    }
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    onSelected: (value) {
+                      if (value == 'profil') {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const ProfilPage(),
+                          ),
+                        );
+                      } else if (value == "explore") {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (_) => const ExplorePage(),
+                          ),
+                        );
+                      } else if (value == 'permintaan') {
+                        // Navigator.push(
+                        //   context,
+                        //   MaterialPageRoute(
+                        //     builder: (context) => const PermintaanSaksiPage(),
+                        //   ),
+                        // );
+                      } else if (value == 'panduan') {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const PanduanPenggunaPage(),
+                          ),
+                        );
+                      } else if (value == 'pengaturan') {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const PengaturanAkunPage(),
+                          ),
+                        );
+                      }
                   },
                   itemBuilder: (context) => const [
                       PopupMenuItem(value: 'profil', child: Text('Profil')),
@@ -92,6 +100,11 @@ class PermintaanSaksiPage extends StatelessWidget {
                       PopupMenuItem(value: 'panduan',child: Text('Panduan Pengguna'),),
                       PopupMenuItem(value: 'pengaturan',child: Text('Pengaturan Akun'),),
                     ],
+                    child: const CircleAvatar(
+                      radius: 20,
+                      backgroundColor: Colors.grey,
+                      child: Icon(Icons.person, color: Colors.white),
+                    ),
                 ),
               ],
             ),
