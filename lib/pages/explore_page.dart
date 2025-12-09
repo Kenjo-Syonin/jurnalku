@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:jurnalku/pages/login_page.dart';
 import 'permintaan_saksi.dart';
 import 'panduan_page.dart';
 import 'pengaturan_akun.dart';
-import 'profil_page.dart';
+import 'dashboard_page.dart';
 
 class ExplorePage extends StatelessWidget {
   const ExplorePage({super.key});
@@ -66,10 +67,9 @@ class ExplorePage extends StatelessWidget {
                       Text(
                         "Kenjo Syonin",
                         style: TextStyle(
-                          fontSize: 14,
-                          fontWeight: FontWeight.w500,
-                          color: Colors.black,
-                        ),
+                            fontSize: 14,
+                            fontWeight: FontWeight.w500,
+                            color: Colors.black),
                       ),
                       Text(
                         "PPLG XII-4",
@@ -83,20 +83,13 @@ class ExplorePage extends StatelessWidget {
                       borderRadius: BorderRadius.circular(10),
                     ),
                     onSelected: (value) {
-                      if (value == 'profil') {
+                      if (value == 'dashboard') {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => const ProfilPage(),
+                            builder: (context) => const Dashboard_Page(),
                           ),
                         );
-                      } else if (value == "explore") {
-                        // Navigator.push(
-                        //   context,
-                        //   MaterialPageRoute(
-                        //     builder: (_) => const ExplorePage(),
-                        //   ),
-                        // );
                       } else if (value == 'permintaan') {
                         Navigator.push(
                           context,
@@ -117,15 +110,35 @@ class ExplorePage extends StatelessWidget {
                           MaterialPageRoute(
                             builder: (context) => const PengaturanAkunPage(),
                           ),
+                          
                         );
+                      } else if (value == 'logout') {
+                        Navigator.push(
+                          context, 
+                          MaterialPageRoute(builder: (_) => const LoginPage()));
                       }
                     },
-                    itemBuilder: (context) => const [
-                      PopupMenuItem(value: 'profil', child: Text('Profil')),
-                      PopupMenuItem(value: 'explore', child: Text('Explore')),
-                      PopupMenuItem(value: 'permintaan',child: Text('Permintaan Saksi'),),
-                      PopupMenuItem(value: 'panduan',child: Text('Panduan Pengguna'),),
-                      PopupMenuItem(value: 'pengaturan',child: Text('Pengaturan Akun'),),
+                    itemBuilder: (context) => [
+                      const PopupMenuItem(
+                        value: 'dashboard',
+                        child: Text('Dashboard'),
+                      ),
+                      const PopupMenuItem(
+                        value: 'permintaan',
+                        child: Text('Permintaan Saksi'),
+                      ),
+                      const PopupMenuItem(
+                        value: 'panduan',
+                        child: Text('Panduan Pengguna'),
+                      ),
+                      const PopupMenuItem(
+                        value: 'pengaturan',
+                        child: Text('Pengaturan Akun'),
+                      ),
+                      const PopupMenuItem(
+                        value: 'logout',
+                        child: Text('Keluar'),
+                      ),
                     ],
                     child: const CircleAvatar(
                       radius: 20,
@@ -185,7 +198,7 @@ class ExplorePage extends StatelessWidget {
                     color: Colors.black.withOpacity(0.05),
                     blurRadius: 6,
                     offset: const Offset(0, 2),
-                  ),
+                  )
                 ],
               ),
               padding: const EdgeInsets.all(16),
@@ -200,10 +213,8 @@ class ExplorePage extends StatelessWidget {
                             prefixIcon: const Icon(Icons.search),
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(10),
-                              borderSide: const BorderSide(
-                                color: Colors.grey,
-                                width: 1,
-                              ),
+                              borderSide:
+                                  const BorderSide(color: Colors.grey, width: 1),
                             ),
                           ),
                         ),
@@ -214,14 +225,10 @@ class ExplorePage extends StatelessWidget {
                         style: ElevatedButton.styleFrom(
                           backgroundColor: Colors.blue[900],
                           padding: const EdgeInsets.symmetric(
-                            vertical: 14,
-                            horizontal: 25,
-                          ),
+                              vertical: 14, horizontal: 25),
                         ),
-                        child: const Text(
-                          "Cari",
-                          style: TextStyle(color: Colors.white),
-                        ),
+                        child: const Text("Cari",
+                            style: TextStyle(color: Colors.white)),
                       ),
                     ],
                   ),
@@ -252,10 +259,8 @@ class ExplorePage extends StatelessWidget {
               children: students.map((student) {
                 return Container(
                   margin: const EdgeInsets.only(bottom: 16),
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 16,
-                    vertical: 14,
-                  ),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
                   decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(12),
@@ -279,11 +284,8 @@ class ExplorePage extends StatelessWidget {
                                 ? AssetImage(student["image"])
                                 : null,
                             child: student["image"] == null
-                                ? const Icon(
-                                    Icons.person,
-                                    color: Colors.white,
-                                    size: 30,
-                                  )
+                                ? const Icon(Icons.person,
+                                    color: Colors.white, size: 30)
                                 : null,
                           ),
                           const SizedBox(width: 12),
@@ -294,9 +296,8 @@ class ExplorePage extends StatelessWidget {
                                 Text(
                                   student["name"],
                                   style: const TextStyle(
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.bold,
-                                  ),
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.bold),
                                 ),
                                 const SizedBox(height: 4),
                                 Text(

@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'profil_page.dart';
+import 'package:jurnalku/pages/login_page.dart';
 import 'explore_page.dart';
 import 'permintaan_saksi.dart';
 import 'pengaturan_akun.dart';
+import 'dashboard_page.dart';
 
 class PanduanPenggunaPage extends StatelessWidget {
   const PanduanPenggunaPage({super.key});
@@ -41,54 +42,55 @@ class PanduanPenggunaPage extends StatelessWidget {
                 ),
                 const SizedBox(width: 10),
                 PopupMenuButton<String>(
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    onSelected: (value) {
-                      if (value == 'profil') {
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  onSelected: (value) {
+                    if (value == 'dashboard') {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => const ProfilPage(),
+                            builder: (context) => const Dashboard_Page(),
                           ),
                         );
-                      } else if (value == "explore") {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (_) => const ExplorePage(),
-                          ),
-                        );
-                      } else if (value == 'permintaan') {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const PermintaanSaksiPage(),
-                          ),
-                        );
-                      } else if (value == 'panduan') {
-                        // Navigator.push(
-                        //   context,
-                        //   MaterialPageRoute(
-                        //     builder: (context) => const PanduanPenggunaPage(),
-                        //   ),
-                        // );
-                      } else if (value == 'pengaturan') {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const PengaturanAkunPage(),
-                          ),
-                        );
-                      }
+                      } else if (value == 'explore') {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const ExplorePage()),
+                      );
+                    } else if (value == 'permintaan') {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const PermintaanSaksiPage()),
+                      );
+                    } else if (value == 'pengaturan') {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const PengaturanAkunPage()),
+                      );
+                    } else if (value == "logout") {
+                      Navigator.push(
+                        context, 
+                        MaterialPageRoute(builder: (_) => const LoginPage()));
+                    } 
                   },
-                  itemBuilder: (context) => const [
-                      PopupMenuItem(value: 'profil', child: Text('Profil')),
-                      PopupMenuItem(value: 'explore', child: Text('Explore')),
-                      PopupMenuItem(value: 'permintaan',child: Text('Permintaan Saksi'),),
-                      PopupMenuItem(value: 'panduan',child: Text('Panduan Pengguna'),),
-                      PopupMenuItem(value: 'pengaturan',child: Text('Pengaturan Akun'),),
-                    ],
+                  itemBuilder: (context) => [
+                    const PopupMenuItem(
+                      value: 'dashboard',
+                      child: Text('Dashboard'),
+                    ),
+                    const PopupMenuItem(
+                        value: 'permintaan', child: Text('Permintaan Saksi')),
+                    const PopupMenuItem(
+                        value: 'pengaturan', child: Text('Pengaturan Akun')),
+                    const PopupMenuItem(
+                        value: 'explore', child: Text('Jelajahi Siswa')),
+                    const PopupMenuItem(
+                        value: 'logout', child: Text('Keluar')),
+                  ],
                   child: const CircleAvatar(
                     radius: 20,
                     backgroundColor: Colors.grey,
